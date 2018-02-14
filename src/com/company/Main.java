@@ -6,37 +6,35 @@ public class Main {
 
     public static void main(String[] args) {
         // write your code here
-        char tableauCaractere[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g'};
-        int i = 0;
-        char reponse = ' ',carac = ' ';
-        Scanner sc = new Scanner(System.in);
+        Ville v0 = new Ville();
+        Ville v1 = new Ville("Marseille", 123456, "France");
+        Ville v2 = new Ville("Rio", 321654, "Brésil");
 
-        do {//Boucle principale
-            do {//On répète cette boucle tant que l'utilisateur n'a pas rentré une lettre figurant dans le tableau
-                i = 0;
-                System.out.println("Rentrez une lettre en minuscule entre a et g, SVP ");
+        System.out.println("\n v = "+v0.getNom()+" ville de  "+v0.getNbreHabitants()+ " habitants se situant en "+v0.getNomPays());
+        System.out.println(" v1 = "+v1.getNom()+" ville de  "+v1.getNbreHabitants()+ " habitants se situant en "+v1.getNomPays());
+        System.out.println(" v2 = "+v2.getNom()+" ville de  "+v2.getNbreHabitants()+ " habitants se situant en "+v2.getNomPays()+"\n\n");
 
-                carac = sc.nextLine().charAt(0);
-                //Boucle de recherche dans le tableau
-                while(i < tableauCaractere.length && carac != tableauCaractere[i])
-                    i++;
+/*
+  Nous allons interchanger les Villes v1 et v2
+  tout ça par l'intermédiaire d'un autre objet Ville.
+*/
+        Ville temp = new Ville();
+        temp = v1;
+        v1 = v2;
+        v2 = temp;
 
-                //Si i < 7 c'est que la boucle n'a pas dépassé le nombre de cases du tableau
-                if (i < tableauCaractere.length)
-                    System.out.println(" La lettre " +carac+ " se trouve bien dans le tableau !");
-                else //Sinon
-                    System.out.println(" La lettre " +carac+ " ne se trouve pas dans le tableau !");
+        System.out.println(" v1 = "+v1.getNom()+" ville de  "+v1.getNbreHabitants()+ " habitants se situant en "+v1.getNomPays());
+        System.out.println(" v2 = "+v2.getNom()+" ville de  "+v2.getNbreHabitants()+ " habitants se situant en "+v2.getNomPays()+"\n\n");
 
-            }while(i >= tableauCaractere.length);
+/*
+  Nous allons maintenant interchanger leurs noms
+  cette fois par le biais de leurs mutateurs.
+*/
+        v1.setNom("Hong Kong");
+        v2.setNom("Djibouti");
 
-            //Tant que la lettre de l'utilisateur ne correspond pas à une lettre du tableau
-            do{
-                System.out.println("Voulez-vous essayer à nouveau ? (O/N)");
-                reponse = sc.nextLine().charAt(0);
-            }while(reponse != 'N' && reponse != 'O');
-        }while (reponse == 'O');
-
-        System.out.println("Au revoir !");
+        System.out.println(" v1 = "+v1.getNom()+" ville de  "+v1.getNbreHabitants()+ " habitants se situant en "+v1.getNomPays());
+        System.out.println(" v2 = "+v2.getNom()+" ville de  "+v2.getNbreHabitants()+ " habitants se situant en "+v2.getNomPays()+"\n\n");
     }}
 
 
