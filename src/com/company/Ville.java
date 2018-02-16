@@ -1,10 +1,13 @@
 package com.company;
 
 public class Ville {
-   private String nomVille;
-   private String nomPays;
-   private int nbreHabitants;
-   private char categorie;
+
+        public static int nbreInstances = 0;
+        protected static int nbreInstancesBis = 0;
+        protected String nomVille;
+        protected String nomPays;
+        protected int nbreHabitants;
+        protected char categorie;
 
     public Ville(){
         System.out.println("création d'une ville");
